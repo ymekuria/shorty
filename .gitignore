@@ -1,0 +1,21 @@
+# Keep environment variables out of version control
+.env
+node_modules
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# dependencies
+/node_modules
+client/node_modules
+# testing
+/coverage
+# # production
+/build
+# misc
+client/.pnp
+client/.pnp.js
+cleint/.DS_Store
+client/.env.local
+client/.env.development.local
+cleint/.env.test.local
+cleint/.env.production.local
+npm-debug.log*
+yarn-debug.log*

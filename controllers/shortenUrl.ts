@@ -19,8 +19,7 @@ const shortenUrl = async (req: Request, res: Response, next: NextFunction) => {
     shortUrl = await getShortUrlCache(validLongUrl);
 
     if (shortUrl) {
-      return res.json({ shortUrl, BASE_URL });
-      // return;
+      res.json({ shortUrl, BASE_URL });
     } else {
       shortUrl = await createShortUrl(validLongUrl);
       res.json({ shortUrl, BASE_URL });

@@ -12,25 +12,19 @@ const validationSchema = yup
 const shortenUrl = async (req: Request, res: Response, next: NextFunction) => {
   const { longUrl } = req.body;
   let shortUrl;
-  console.log('longUrl', longUrl);
 
   //perform url validation possible with yup
   try {
     let validLongUrl = await validationSchema.validate(longUrl);
 
-    console.log('isURL', validLongUrl);
-
     shortUrl = await getShortUrlCache(validLongUrl);
 
     if (shortUrl) {
-      console.log('link works');
       return res.json({ shortUrl, BASE_URL });
       // return;
     } else {
-      console.log('link is not in cache');
       shortUrl = await createShortUrl(validLongUrl);
       res.json({ shortUrl, BASE_URL });
-      return;
     }
   } catch (error) {
     console.log('error', error);

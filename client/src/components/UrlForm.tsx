@@ -96,7 +96,6 @@ function UrlForm(): JSX.Element {
             Shrink
           </SubmitButton>
           <RedirectButton onClick={handleRedirect}>{shortUrl}</RedirectButton>
-          {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
         </Form>
       )}
     </Formik>

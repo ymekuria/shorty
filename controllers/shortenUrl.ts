@@ -1,5 +1,4 @@
 import { Express, Request, Response, NextFunction } from 'express';
-
 import * as yup from 'yup';
 import createShortUrl from '../services/createShortUrl';
 import getShortUrlCache from '../services/getShortUrlCache';
@@ -13,8 +12,8 @@ const shortenUrl = async (req: Request, res: Response, next: NextFunction) => {
   const { longUrl } = req.body;
   let shortUrl;
 
-  //perform url validation possible with yup
   try {
+    //perform url validation with yup
     let validLongUrl = await validationSchema.validate(longUrl);
 
     shortUrl = await getShortUrlCache(validLongUrl);
